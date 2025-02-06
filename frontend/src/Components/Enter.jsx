@@ -7,9 +7,7 @@ const Enter = () => {
     const roles = [
         {value: 'admin', label: 'Admin'},
         {value: 'Student', label: 'Student'},
-        {value: 'pofessor', label: 'Professor'},
-        {value: 'staff', label: 'Staff'},
-        {value: 'hod', label: 'HOD'},
+        {value: 'professor', label: 'Professor'},
     ]
     const handledropdownchange = (e) => {
         setRole(e.target.value);
