@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Studentsidebar = () => {
-  const [activeItem, setActiveItem] = useState('Billing');
+  const [activeItem, setActiveItem] = useState('Profile');
   const menuItems = ['Profile', 'Attendance', 'Billing', 'Results', 'Calender'];
 
   return (
