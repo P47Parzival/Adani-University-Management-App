@@ -6,7 +6,7 @@ import Studentprofilepage from '../Subpages/Studentprofilepage'
 const Studentdashboardpage = () => {
     return (
         <div>
-            <Studentheader></Studentheader>
+            <Studentheader />
             <div className='flex justify-center pt-4'>
                 <div className='w-1/3 pl-10 '>
                     <Studentsidebar />
