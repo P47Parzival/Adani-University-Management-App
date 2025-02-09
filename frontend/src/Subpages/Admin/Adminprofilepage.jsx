@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 
@@ -9,7 +10,7 @@ const Adminprofilepage = () => {
 
   useEffect(() => {
     if (adminID) {
-      axios.get(`http://localhost:3000/${adminID}`)
+      axios.get(`http://localhost:3000/admin/${adminID}`)
         .then(res => {
           setAdmin(res.data);
         })
