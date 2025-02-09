@@ -5,7 +5,7 @@ import Studentprofilepage from '../Subpages/Student/Studentprofilepage';
 import Studentattendancepage from '../Subpages/Student/Studentattendancepage';
 import Studentbillingpage from '../Subpages/Student/Studentbillingpage';
 import Studentresultpage from '../Subpages/Student/Studentresultpage';
-import Studentcalenderpage from '../Subpages/Student/Studentcalenderpage'
+import Studentcalenderpage from '../Subpages/Student/Studentcalenderpage';
 
 const Studentdashboardpage = () => {
     const [activePage, setActivepage] = useState('Profile');
