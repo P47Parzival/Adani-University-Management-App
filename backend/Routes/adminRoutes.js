@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
     let admin;
     // Find admin by email and adminID (case-insensitive)
     if(role === 'admin') {
-      let admin = await Admin.findOne({
+      admin = await Admin.findOne({
         email: { $regex: new RegExp(`^${email}$`, 'i') }
       });
     }
