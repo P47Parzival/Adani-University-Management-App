@@ -33,6 +33,28 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Get all students
+router.get('/count', async(req, res) => {
+  try {
+   const count = await Student.countDocuments();
+   res.json({count});
+  } catch (error) {
+   console.error(error);
+   res.status(500).json({ success: false, message: "Server error" });
+  }
+})
+
+// Route to add a new student
+router.post('/newstudent', async (req, res) => {
+  try {
+    const newStudent = new Student(req.body);
+    await newStudent.save();
+    res.status(201).json(newStudent);
+  } catch (err) {
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
 // Get student by roll number
 router.get('/:rollNo', async (req, res) => {
   try {
