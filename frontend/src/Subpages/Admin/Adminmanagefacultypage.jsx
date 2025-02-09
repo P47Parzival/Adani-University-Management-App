@@ -6,7 +6,7 @@ const Adminmanagefaculty = () => {
   const [newFaculty, setNewFaculty] = useState({
     Fullname: '',
     adminStatus: 'Active',
-    role: 'faculty',
+    role: 'System administrator',
     adminID: '',
     email: '',
     password: '',
