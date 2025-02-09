@@ -26,10 +26,33 @@ router.post('/', async (req, res) => {
   }
 });
 
+//get all faculty
+router.get('/count', async(req, res) => {
+  try {
+    const count = await Admin.countDocuments();
+    res.json({count});
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+})
+
+//route to add new faculty
+router.post('/newfaculty', async (req, res) => {
+  try {
+    const newFaculty = new Admin(req.body);
+    await newFaculty.save();
+    res.status(201).json(newFaculty);
+  } catch (err) {
+    console.error('Error adding new faculty:', err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
 // Get Admin by ID (adminID)
 router.get('/:adminID', async (req, res) => {
   try {
-    const admin = await Admin.findById({adminID: req.params.adminID});
+    const admin = await Admin.findOne({adminID: req.params.adminID});
     if (!admin) return res.status(404).json({ error: "Admin not found" });
     res.json(admin);
   } catch (err) {
