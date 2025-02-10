@@ -3,8 +3,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const Student = require('./Model/Student');
 const Admin = require('./Model/Admin'); // Import Admin model
+const Professor = require('./Model/Professor'); // Import Professor model
 const studentRoutes = require('./Routes/studentRoutes');
 const adminRoutes = require('./Routes/adminRoutes');
+const professorRoutes = require('./Routes/professorRoutes');
+const complainRoutes = require('./Routes/complainRoutes');
 
 const app = express();
 const port = 3000;
@@ -75,6 +78,28 @@ const admins = [
   }
 ];
 
+// Sample professor data
+const professors = [
+    {
+      "Fullname": "Dr. John Smith",
+      "professorStatus": "Senior Lecturer",
+      "department": "Computer Science",
+      "email": "john.smith@university.edu",
+      "password": "hashedpassword123",
+      "professorID": "CS101",
+      "phone": "+1-555-1234"
+    },
+    {
+      "Fullname": "Dr. Emily Johnson",
+      "professorStatus": "Associate Professor",
+      "department": "Electrical Engineering",
+      "email": "emily.johnson@university.edu",
+      "password": "hashedpassword456",
+      "professorID": "EE202",
+      "phone": "+1-555-5678"
+    }
+];
+
 // Function to insert sample data
 const insertSampleData = async () => {
   try {
@@ -96,6 +121,15 @@ const insertSampleData = async () => {
       console.log("Admin data already exists, skipping insertion.");
     }
 
+    // Insert Professors if empty
+    const professorCount = await Professor.countDocuments();
+    if (professorCount === 0) {
+      await Professor.insertMany(professors);
+      console.log("Professors added successfully!");
+    } else {
+      console.log("Professor data already exists, skipping insertion.");
+    }
+
   } catch (err) {
     console.error("Error inserting sample data:", err);
   }
@@ -107,6 +141,8 @@ insertSampleData();
 // Routes
 app.use('/student', studentRoutes); // Import student routes
 app.use('/admin', adminRoutes); // Import admin routes
+app.use('/professor', professorRoutes); // Import professor routes
+app.use('/complain', complainRoutes); // Import complain routes
 
 // Start server
 app.listen(port, () => {
