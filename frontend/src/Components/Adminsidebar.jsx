@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
-const Adminsidebar = () => {
-  const [activeItem, setActiveItem] = useState('Dashboard');
-  const menuItems = ['Profile', 'Manage Students', 'Manage Faculty', 'Reports', 'Settings', 'Professor Dashboard'];
+const Adminsidebar = ({ setActivepage, activePage }) => {
+  const menuItems = ['Profile', 'Manage Students', 'Manage Faculty', 'Reports', 'View Complains', 'Settings'];
 
   return (
     <div className="space-y-2 ">
@@ -10,11 +9,11 @@ const Adminsidebar = () => {
         <button
           key={item}
           className={`w-full text-left p-2 rounded ${
-            activeItem === item 
+            activePage === item 
               ? 'bg-blue-100 text-blue-800' 
               : 'hover:bg-gray-100'
           }`}
-          onClick={() => setActiveItem(item)}
+          onClick={() => setActivepage(item)}
         >
           {item}
         </button>

@@ -8,6 +8,7 @@ const Enter = () => {
   const [password, setPassword] = useState('');
   const [rollNo, setRollNo] = useState('');
   const [adminID, setAdminID] = useState('');
+  const [professorID, setProfessorID] = useState('');
   const navigate = useNavigate();
 
   const roles = [
@@ -23,7 +24,7 @@ const Enter = () => {
   };
 
   const handleLogin = async () => {
-    if (!role || !email || !password || (role === 'student' && !rollNo) || (role === 'admin' && !adminID)) {
+    if (!role || !email || !password || (role === 'student' && !rollNo) || (role === 'admin' && !adminID) || (role === 'professor' && !professorID)) {
       alert("Please fill in all fields");
       return;
     }
@@ -36,6 +37,9 @@ const Enter = () => {
       else if (role === 'admin') {
         requestData.adminID = adminID; // Include adminID in request data
       }
+      else if (role === 'professor') {
+        requestData.professorID = professorID; // Include professorID in request data
+      }
 
       const response = await axios.post(`http://localhost:3000/${role}`, requestData);
       if (response.data.success) {
@@ -44,6 +48,8 @@ const Enter = () => {
           navigateState.state.rollNo = rollNo;
         } else if (role === 'admin') {
           navigateState.state.adminID = adminID;
+        } else if (role === 'professor') {
+          navigateState.state.professorID = professorID;
         } else{
           console.log("Do nothing"); // Do nothing
         }
@@ -100,6 +106,16 @@ const Enter = () => {
             placeholder='Enter your admin ID'
             value={adminID}
             onChange={(e) => setAdminID(e.target.value)}
+          />
+        )}
+
+        {role === 'professor' && (
+          <input
+            className='border-2 border-black p-2 w-full'
+            type="text"
+            placeholder='Enter your professor ID'
+            value={professorID}
+            onChange={(e) => setProfessorID(e.target.value)}
           />
         )}
 
