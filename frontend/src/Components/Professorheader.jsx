@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import Logout from './Logout';
 
 const ProfessorHeader = () => {
   const [professor, setProfessor] = useState(null);
@@ -33,7 +34,7 @@ const ProfessorHeader = () => {
           <img className='h-8 rounded-full' src="https://github.com/P47Parzival/Tango-Chatapp/blob/main/Frontend/src/assests/face%20(1).png?raw=true" alt="Profile" />
           <h1>{professor.Fullname}</h1>
         </div>
-        <button className='border-2 border-black p-2 rounded-full'>Logout</button>
+        <Logout></Logout>
       </div>
     </div>
   );
