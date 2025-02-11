@@ -8,12 +8,15 @@ const studentRoutes = require('./Routes/studentRoutes');
 const adminRoutes = require('./Routes/adminRoutes');
 const professorRoutes = require('./Routes/professorRoutes');
 const complainRoutes = require('./Routes/complainRoutes');
+const path = require('path');
 
 const app = express();
 const port = 3000;
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: false })); // Helps parse form data
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve static files from uploads folder
 
 // Connect to MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/universityDB')
