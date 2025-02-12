@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Adminsidebar = ({ setActivepage, activePage }) => {
-  const menuItems = ['Profile', 'Manage Students', 'Manage Faculty', 'Reports', 'View Complains', 'Settings'];
+  const menuItems = ['Profile', 'Manage Students', 'Manage Faculty', 'Upload calender','Reports', 'View Complains', 'Settings'];
 
   return (
     <div className="space-y-2 ">

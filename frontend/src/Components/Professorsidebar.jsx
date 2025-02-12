@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProfessorSidebar = ({ setActivePage, activePage }) => {
-  const menuItems = ['Profile', 'Upload-Attendance', 'Upload-Assignments', 'Upload-Grades', 'Settings'];
+  const menuItems = ['Profile', 'Upload Attendance', 'Upload Assignments', 'Upload Grades', 'Settings'];
 
   return (
     <div className="space-y-2">

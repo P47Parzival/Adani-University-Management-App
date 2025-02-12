@@ -21,6 +21,7 @@ const Enter = () => {
     setRole(e.target.value);
     setRollNo(''); // Reset rollNo when changing role
     setAdminID(''); // Reset adminID when changing role
+    setProfessorID(''); 
   };
 
   const handleLogin = async () => {
