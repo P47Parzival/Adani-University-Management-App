@@ -4,6 +4,29 @@ const Professor = require('../Model/Professor'); // Import Professor model
 const multer = require('multer');
 const path = require('path');
 
+// Professor Login Route
+router.post('/', async (req, res) => {
+  const { email, password, professorID } = req.body;
+
+  try {
+    let professor;
+    // Find professor by email (case-insensitive)
+    professor = await Professor.findOne({
+      email: { $regex: new RegExp(`^${email}$`, 'i') },
+      professorID: professorID
+    });
+
+    if (!professor) return res.status(404).json({ success: false, message: "Professor not found" });
+    if (professor.password !== password) return res.status(401).json({ success: false, message: "Incorrect password" });
+
+    res.json({ success: true, message: "Professor login successful", userID: professor._id });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+
 // Set up Multer for file storage
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -25,29 +48,6 @@ router.post('/upload', upload.single('assignmentFile'), async (req, res) => {
     }
 
     res.json({ success: true, message: "File uploaded successfully", filePath: req.file.path });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ success: false, message: "Server error" });
-  }
-});
-
-// Professor Login Route
-router.post('/', async (req, res) => {
-  const { email, password, professorID } = req.body;
-
-  try {
-    let professor;
-    // Find professor by email (case-insensitive)
-    professor = await Professor.findOne({
-      email: { $regex: new RegExp(`^${email}$`, 'i') },
-      professorID: professorID
-    });
-
-    if (!professor) return res.status(404).json({ success: false, message: "Professor not found" });
-    if (professor.password !== password) return res.status(401).json({ success: false, message: "Incorrect password" });
-
-    res.json({ success: true, message: "Professor login successful", userID: professor._id });
-
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, message: "Server error" });

@@ -4,22 +4,6 @@ const Student = require('../Model/Student');
 const fs = require('fs');
 const path = require('path');
 
-// View assignments
-router.get('/assignments', async (req, res) => {
-  try {
-    const directoryPath = path.join(__dirname, '../uploads/'); // Path to uploads folder
-    fs.readdir(directoryPath, (err, files) => {
-      if (err) {
-        return res.status(500).json({ success: false, message: "Unable to read files" });
-      }
-      res.json({ success: true, files });
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ success: false, message: "Server error" });
-  }
-});
-
 // Login route
 router.post('/', async (req, res) => {
   const { role, email, password, rollNo } = req.body;
@@ -45,6 +29,22 @@ router.post('/', async (req, res) => {
 
     res.json({ success: true, message: "Login successful" });
 
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+
+// View assignments
+router.get('/assignments', async (req, res) => {
+  try {
+    const directoryPath = path.join(__dirname, '../uploads/'); // Path to uploads folder
+    fs.readdir(directoryPath, (err, files) => {
+      if (err) {
+        return res.status(500).json({ success: false, message: "Unable to read files" });
+      }
+      res.json({ success: true, files });
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, message: "Server error" });
