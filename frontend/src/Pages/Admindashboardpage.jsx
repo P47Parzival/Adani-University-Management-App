@@ -7,6 +7,7 @@ import Adminmanagefaculty from '../Subpages/Admin/Adminmanagefacultypage';
 import Adminreports from '../Subpages/Admin/Adminreportspage';
 import Adminsettings from '../Subpages/Admin/Adminsettingspage';
 import Adminviewcomplainpage from '../Subpages/Admin/Adminviewcomplainpage';
+import Adminuploadcalenderpage from '../Subpages/Admin/Adminuploadcalenderpage';
 
 const Admindashboardpage = () => {
   const [activePage, setActivepage] = useState('Profile');
@@ -22,6 +23,7 @@ const Admindashboardpage = () => {
           {activePage === 'Profile' && <Adminprofilepage />}
           {activePage === 'Manage Students' && <Adminmanagestudentspage />}
           {activePage === 'Manage Faculty' && <Adminmanagefaculty />}
+          {activePage === 'Upload calender' && <Adminuploadcalenderpage />}
           {activePage === 'Reports' && <Adminreports />}
           {activePage === 'View Complains' && <Adminviewcomplainpage />}
           {activePage === 'Settings' && <Adminsettings />}
