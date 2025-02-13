@@ -9,6 +9,7 @@ const adminRoutes = require('./Routes/adminRoutes');
 const professorRoutes = require('./Routes/professorRoutes');
 const complainRoutes = require('./Routes/complainRoutes');
 const calenderRoutes = require('./Routes/calenderRoutes'); // Import calender routes
+// const attendanceRoutes = require('./Routes/attendanceRoutes.js')
 const path = require('path');
 
 const app = express();
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false })); // Helps parse form data
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve static files from uploads folder
 app.use('/calender', express.static(path.join(__dirname, 'calender'))); // Serve static files from calender folder
+app.use('/profilepic', express.static(path.join(__dirname, 'profilepic')));
 
 //Dhruv shifted these route to above cause it was not fetching with others
 app.use('/calender', calenderRoutes); // Import calender routes
@@ -151,6 +153,7 @@ app.use('/student', studentRoutes); // Import student routes
 app.use('/admin', adminRoutes); // Import admin routes
 app.use('/professor', professorRoutes); // Import professor routes
 app.use('/complain', complainRoutes); // Import complain routes
+// app.use('/attendance', attendanceRoutes)  //Import attendance routes
 
 
 // Start server
