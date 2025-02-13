@@ -26,7 +26,7 @@ const Studentprofilepage = () => {
     <div className="flex border rounded-lg bg-sky-100 shadow-md overflow-hidden">
       <div className="w-1/3 p-8">
       <img 
-          src={student.profileImageUrl} 
+          src={`http://localhost:3000${student.profileImageUrl}`} 
           alt="Student" 
           className="w-full h-auto object-cover rounded"
           style={{
