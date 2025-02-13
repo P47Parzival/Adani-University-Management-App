@@ -8,6 +8,7 @@ import Studentresultpage from '../Subpages/Student/Studentresultpage';
 import Studentcalenderpage from '../Subpages/Student/Studentcalenderpage';
 import Studentviewassignmetspage from '../Subpages/Student/Studentviewassignmetspage';
 import Studentregistercomplainpage from '../Subpages/Student/Studentregistercomplainpage';
+import Studentsettingspage from '../Subpages/Student/Studentsettingspage';
 
 const Studentdashboardpage = () => {
     const [activePage, setActivepage] = useState('Profile');
@@ -27,6 +28,7 @@ const Studentdashboardpage = () => {
                     {activePage === 'Results' && <Studentresultpage />}
                     {activePage === 'Calendar' && <Studentcalenderpage />}
                     {activePage === 'Register Complains' && <Studentregistercomplainpage />}
+                    {activePage === 'Settings' && <Studentsettingspage />}
                 </div>
             </div>
         </div>
