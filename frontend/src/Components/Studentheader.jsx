@@ -30,7 +30,7 @@ const Studentheader = () => {
       </div>
       <div className='flex items-center space-x-4'> 
         <div className='flex items-center space-x-2'>
-            <img className='h-8 rounded-full' src="https://github.com/P47Parzival/Tango-Chatapp/blob/main/Frontend/src/assests/face%20(1).png?raw=true" alt="" />
+            <img className='h-8 rounded-full' src={`http://localhost:3000${student.profileImageUrl}`}  alt="" />
             <h1>{student.Fullname}</h1>
         </div>
         <Logout></Logout>
