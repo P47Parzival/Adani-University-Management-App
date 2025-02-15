@@ -16,7 +16,8 @@
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.1.1",
-    "styled-components": "^6.1.14"
+    "styled-components": "^6.1.14",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

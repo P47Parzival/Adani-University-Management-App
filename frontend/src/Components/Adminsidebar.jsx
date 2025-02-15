@@ -10,9 +10,9 @@ const Adminsidebar = ({ setActivepage, activePage }) => {
           key={item}
           className={`w-full text-left p-2 rounded ${
             activePage === item 
-              ? 'bg-blue-100 text-blue-800' 
-              : 'hover:bg-gray-100'
-          }`}
+              ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' 
+              : 'hover:bg-gray-100 dark:hover:bg-gray-700'
+          } dark:text-white`}
           onClick={() => setActivepage(item)}
         >
           {item}

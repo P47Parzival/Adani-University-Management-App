@@ -1,35 +1,37 @@
-require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
-const cors = require('cors');
-
-const app = express();
-app.use(express.json());
-app.use(cors()); // Allow frontend access
-
-const API_URL = 'https://chatgpt-42.p.rapidapi.com/o3mini';
-const API_KEY = process.env.RAPIDAPI_KEY; // Store your key in .env
 
 router.post('/', async (req, res) => {
+    const { message } = req.body;
+    
     try {
         const response = await axios.post(
-            API_URL,
-            { messages: [{ role: 'user', content: req.body.message }], web_access: false },
+            'https://chatgpt-42.p.rapidapi.com/conversationgpt4',
+            {
+                messages: [{ role: 'user', content: message }],
+                system_prompt: "You are a helpful university assistant that provides clear, direct answers.",
+                temperature: 0.8,
+                max_tokens: 1000
+            },
             {
                 headers: {
-                    'x-rapidapi-key': API_KEY,
+                    'x-rapidapi-key': process.env.RAPIDAPI_KEY,
                     'x-rapidapi-host': 'chatgpt-42.p.rapidapi.com',
                     'Content-Type': 'application/json',
-                },
+                }
             }
         );
-        res.json(response.data);
+
+        res.json({ result: response.data.result });
+
     } catch (error) {
         console.error('Chatbot API Error:', error.response?.data || error.message);
-        res.status(500).json({ error: 'API call failed', details: error.response?.data || error.message });
+        res.status(500).json({ 
+            error: 'Failed to get response', 
+            details: error.response?.data || error.message 
+        });
     }
 });
-
 
 module.exports = router;
