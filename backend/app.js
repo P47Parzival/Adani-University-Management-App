@@ -9,6 +9,7 @@ const adminRoutes = require('./Routes/adminRoutes');
 const professorRoutes = require('./Routes/professorRoutes');
 const complainRoutes = require('./Routes/complainRoutes');
 const calenderRoutes = require('./Routes/calenderRoutes'); // Import calender routes
+const chatbotRoutes = require('./Routes/chatbotRoutes');
 // const attendanceRoutes = require('./Routes/attendanceRoutes.js')
 const path = require('path');
 
@@ -153,6 +154,7 @@ app.use('/student', studentRoutes); // Import student routes
 app.use('/admin', adminRoutes); // Import admin routes
 app.use('/professor', professorRoutes); // Import professor routes
 app.use('/complain', complainRoutes); // Import complain routes
+app.use('/chat', chatbotRoutes);
 // app.use('/attendance', attendanceRoutes)  //Import attendance routes
 
 
