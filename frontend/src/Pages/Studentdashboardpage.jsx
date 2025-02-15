@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { act, useState } from 'react';
 import Studentheader from '../Components/Studentheader';
 import Studentsidebar from '../Components/Studentsidebar';
 import Studentprofilepage from '../Subpages/Student/Studentprofilepage';
@@ -9,6 +9,7 @@ import Studentcalenderpage from '../Subpages/Student/Studentcalenderpage';
 import Studentviewassignmetspage from '../Subpages/Student/Studentviewassignmetspage';
 import Studentregistercomplainpage from '../Subpages/Student/Studentregistercomplainpage';
 import Studentsettingspage from '../Subpages/Student/Studentsettingspage';
+import Studentchatbotpage from '../Subpages/Student/Studentchatbotpage'
 
 const Studentdashboardpage = () => {
     const [activePage, setActivepage] = useState('Profile');
@@ -29,6 +30,7 @@ const Studentdashboardpage = () => {
                     {activePage === 'Calendar' && <Studentcalenderpage />}
                     {activePage === 'Register Complains' && <Studentregistercomplainpage />}
                     {activePage === 'Settings' && <Studentsettingspage />}
+                    {activePage === 'chatbot' && <Studentchatbotpage />}
                 </div>
             </div>
         </div>
