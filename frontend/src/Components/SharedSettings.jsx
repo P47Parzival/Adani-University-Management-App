@@ -75,7 +75,7 @@ const SharedSettings = ({ userType, userData }) => {
 
         {/* Logout Section */}
         <div className="flex justify-center mt-8">
-         
+         <Logout />
         </div>
       </div>
     </div>

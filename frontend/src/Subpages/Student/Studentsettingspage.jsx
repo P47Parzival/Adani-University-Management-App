@@ -64,7 +64,7 @@ const Studentsettingspage = () => {
         Upload
       </button>
       <SharedSettings userType="Student" userData={userData} onUpdateProfile={handleUpdateProfile} />
-      <Logout />
+      
     </div>
   );
 };
