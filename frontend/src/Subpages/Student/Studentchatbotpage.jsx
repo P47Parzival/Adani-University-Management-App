@@ -46,7 +46,7 @@ function Chatbot() {
     };
 
     return (
-        <div className="flex flex-col h-[80vh] max-w-3xl mx-auto p-4 bg-white rounded-lg shadow-lg">
+        <div className="flex flex-col h-[80vh] max-w-3xl mx-auto bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow-lg p-6">
             <h1 className="text-2xl font-bold text-center text-gray-800 mb-4">University Assistant</h1>
 
             {error && (

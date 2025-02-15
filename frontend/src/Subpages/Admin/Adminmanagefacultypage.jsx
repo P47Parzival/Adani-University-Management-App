@@ -63,30 +63,30 @@ const Adminmanagefaculty = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
-        <div className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow">
-          <h2 className="text-lg font-semibold text-gray-800 mb-2">Total Faculty</h2>
+        <div className="bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow-lg p-6 hover:shadow-lg transition-shadow">
+          <h2 className="text-lg font-semibold mb-2">Total Faculty</h2>
           <div className="text-3xl font-bold text-blue-600">{totalFaculty}</div>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow">
-          <h2 className="text-lg font-semibold text-gray-800 mb-2">Add Faculty</h2>
+        <div className="bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow-lg p-6 hover:shadow-lg transition-shadow">
+          <h2 className="text-lg font-semibold mb-2">Add Faculty</h2>
           <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-colors" onClick={() => document.getElementById('addFacultyForm').classList.toggle('hidden')}>
             Add New
           </button>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow">
-          <h2 className="text-lg font-semibold text-gray-800 mb-2">Salary Paid</h2>
+        <div className="bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow-lg p-6 hover:shadow-lg transition-shadow">
+          <h2 className="text-lg font-semibold mb-2">Salary Paid</h2>
           <div className="text-3xl font-bold text-green-600">120</div>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow">
-          <h2 className="text-lg font-semibold text-gray-800 mb-2">Salary Pending</h2>
+        <div className="bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow-lg p-6 hover:shadow-lg transition-shadow">
+          <h2 className="text-lg font-semibold mb-2">Salary Pending</h2>
           <div className="text-3xl font-bold text-red-600">30</div>
         </div>
       </div>
 
-      <form id="addFacultyForm" className="hidden mt-6 bg-white p-6 rounded-lg shadow-md" onSubmit={handleAddFaculty}>
+      <form id="addFacultyForm" className="hidden mt-6 bg-white dark:bg-gray-800 dark:text-white p-6 rounded-lg shadow-md" onSubmit={handleAddFaculty}>
         <h2 className="text-xl font-bold mb-4">Add New Faculty</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input type="text" name="Fullname" value={newFaculty.Fullname} onChange={handleInputChange} placeholder="Fullname" className="p-2 border rounded" required />

@@ -38,7 +38,7 @@ const StudentCalendarPage = () => {
 
   return (
     <div className="max-h-screen flex flex-col items-center justify-center p-6">
-      <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-4xl">
+      <div className="bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow-lg p-6 w-full max-w-4xl">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">📅 Student Calendar</h2>
 
         {fileUrl && (

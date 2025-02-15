@@ -32,11 +32,11 @@ const Professoruploadassignmentspage = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow-lg p-6">
       <h1 className="text-2xl font-bold mb-4">Upload Assignments</h1>
-      <input type="file" onChange={handleFileChange} className="mb-2 p-2 border" />
+      <input type="file" onChange={handleFileChange} className="mb-2 p-2 border dark:border-gray-600" />
       <button onClick={handleUpload} className="ml-2 p-2 bg-blue-500 text-white rounded">Upload</button>
-      {message && <p className="mt-2 text-red-500">{message}</p>}
+      {message && <p className="mt-2 text-red-500 dark:text-red-400">{message}</p>}
     </div>
   );
 };
