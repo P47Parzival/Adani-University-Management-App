@@ -10,7 +10,7 @@ const professorRoutes = require('./Routes/professorRoutes');
 const complainRoutes = require('./Routes/complainRoutes');
 const calenderRoutes = require('./Routes/calenderRoutes'); // Import calender routes
 const chatbotRoutes = require('./Routes/chatbotRoutes');
-// const attendanceRoutes = require('./Routes/attendanceRoutes.js')
+const attendanceRoutes = require('./Routes/attendanceRoutes'); // Import attendance routes
 const path = require('path');
 
 const app = express();
@@ -28,8 +28,8 @@ app.use('/calender', calenderRoutes); // Import calender routes
 
 // Connect to MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/universityDB')
-.then(() => console.log("Connected to MongoDB"))
-.catch(err => console.error("MongoDB connection error:", err));
+  .then(() => console.log("Connected to MongoDB"))
+  .catch(err => console.error("MongoDB connection error:", err));
 
 // Sample student data
 const students = [
@@ -155,7 +155,7 @@ app.use('/admin', adminRoutes); // Import admin routes
 app.use('/professor', professorRoutes); // Import professor routes
 app.use('/complain', complainRoutes); // Import complain routes
 app.use('/chat', chatbotRoutes);
-// app.use('/attendance', attendanceRoutes)  //Import attendance routes
+app.use('/attendance', attendanceRoutes); // Import attendance routes
 
 
 // Start server
