@@ -25,7 +25,7 @@ const ProfessorHeader = () => {
   }
 
   return (
-    <div className='h-[86px] p-4 flex justify-between items-center bg-gray-200 dark:bg-gray-800 dark:text-white'>
+    <div className='h-[86px] p-4 flex justify-between items-center bg-gray-200'>
       <div>
         <img className='h-12 w-auto' src="https://github.com/P47Parzival/Adani-University-Management-App/blob/main/frontend/src/assets/Adani-University-Logo.png?raw=true" alt="University Logo" />
       </div>

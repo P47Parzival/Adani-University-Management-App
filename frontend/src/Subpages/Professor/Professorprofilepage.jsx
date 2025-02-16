@@ -20,7 +20,7 @@ const Professorprofilepage = () => {
 
   if(!professor) { return <div>Loading...</div> }
   return (
-    <div className="flex bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow-lg p-6 overflow-hidden">
+    <div className="flex border rounded-lg bg-sky-100 shadow-md overflow-hidden">
       <div className="w-1/3 p-8">
         <img 
           src={professor.profileImageUrl || "https://github.com/P47Parzival/Tango-Chatapp/blob/main/Frontend/src/assests/face%20(1).png?raw=true"}

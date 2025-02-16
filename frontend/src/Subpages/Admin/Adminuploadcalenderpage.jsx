@@ -73,7 +73,7 @@ const AdminUploadCalendarPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
+    <div className="max-h-screen flex flex-col items-center justify-center  p-6">
       <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-md">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">📤 Upload Academic Calendar</h2>
 

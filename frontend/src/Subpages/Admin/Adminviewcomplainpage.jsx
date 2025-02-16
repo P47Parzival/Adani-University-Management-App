@@ -31,9 +31,9 @@ const AdminViewComplainPage = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow-lg p-6">
+    <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">View Complaints</h1>
-      <table className="w-full border-collapse border border-gray-300 dark:border-gray-600">
+      <table className="w-full border-collapse border border-gray-300">
         <thead>
           <tr className="bg-gray-100">
             <th className="border p-2">Student Name</th>

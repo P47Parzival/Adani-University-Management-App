@@ -15,7 +15,7 @@ const Studentdashboardpage = () => {
     const [activePage, setActivepage] = useState('Profile');
 
     return (
-        <div className="min-h-screen dark:bg-gray-900 dark:text-white">
+        <div>
             <Studentheader />
             <div className='flex justify-center pt-4'>
                 <div className='w-1/3 pl-10 '>
