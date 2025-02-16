@@ -17,7 +17,7 @@ const StudentRegisterComplainPage = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow-lg p-6">
       <div className='flex justify-center pb-4'>
         <h3 className='text-center w-2/3 border-2 p-2 border-orange-300 '>Caution your name will be visible to admins, complain respectfully! ⚠️</h3>
       </div>
