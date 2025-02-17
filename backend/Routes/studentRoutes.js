@@ -35,6 +35,45 @@ router.post('/', async (req, res) => {
   }
 });
 
+const multer = require('multer');
+
+// Set up storage for uploaded files
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'profilepic/'); // Save uploaded images in this folder
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${req.params.rollNo}_${Date.now()}${path.extname(file.originalname)}`);
+  }
+});
+
+const upload = multer({ storage });
+
+// Upload profile picture route
+router.post('/profilepic/:rollNo', upload.single('profileImage'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ success: false, message: 'No file uploaded' });
+    }
+
+    // Find student by roll number
+    const student = await Student.findOne({ rollNo: req.params.rollNo });
+    if (!student) {
+      return res.status(404).json({ success: false, message: 'Student not found' });
+    }
+
+    // Update student record with image path
+    student.profileImageUrl = `/profilepic/${req.file.filename}`;
+    await student.save();
+
+    res.json({ success: true, message: 'Profile picture uploaded successfully', filePath: student.profileImageUrl });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
+
+
 // View assignments
 router.get('/assignments', async (req, res) => {
   try {
@@ -70,6 +109,17 @@ router.post('/newstudent', async (req, res) => {
     res.status(201).json(newStudent);
   } catch (err) {
     res.status(500).json({ error: "Server error" });
+  }
+});
+
+//fetch student for attendance 
+router.get('/fetchstudent', async (req, res) => {
+  try {
+    const students = await Student.find(); // Fetch all students from the database
+    res.json(students);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Server error" });
   }
 });
 
