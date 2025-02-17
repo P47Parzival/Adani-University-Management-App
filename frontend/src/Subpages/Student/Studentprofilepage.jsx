@@ -24,65 +24,60 @@ const Studentprofilepage = () => {
 
   return (
     <div className="bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow-lg p-6">
-      <div className="flex border rounded-lg bg-sky-100 shadow-md overflow-hidden">
-        <div className="w-1/3 p-8">
-        <img 
+      <div className="flex flex-col md:flex-row gap-8 p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow-md">
+        <div className="md:w-1/3 flex justify-center">
+          <img 
             src={`http://localhost:3000${student.profileImageUrl}`} 
             alt="Student" 
-            className="w-full h-auto object-cover rounded"
-            style={{
-              width: '150px',
-              height: '200px',
-              borderRadius: '8px',
-              '@media (min-width: 320px) and (max-width: 767px)': {
-                width: '80px',
-                height: '108px',
-              }
-            }}
+            className="w-48 h-48 object-cover rounded-xl shadow-lg"
           />
         </div>
-        <div className="w-2/3 p-4">
-          <h2 className="text-xl font-bold mb-4">{student.Fullname}</h2>
-          <div className="space-y-2">
-            <div className="flex">
-              <span className="font-semibold w-1/2">Student Status:</span>
-              <span className="w-1/2">Active</span>
+        <div className="md:w-2/3">
+          <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">{student.Fullname}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <div className="bg-white dark:bg-gray-600 p-3 rounded-lg">
+                <span className="font-semibold text-gray-600 dark:text-gray-200">Status: </span>
+                <span className="text-gray-800 dark:text-white">Active</span>
+              </div>
+              <div className="bg-white dark:bg-gray-600 p-3 rounded-lg">
+                <span className="font-semibold text-gray-600 dark:text-gray-200">Admission No: </span>
+                <span className="text-gray-800 dark:text-white">{student.admissionNo}</span>
+              </div>
+              <div className="bg-white dark:bg-gray-600 p-3 rounded-lg">
+                <span className="font-semibold text-gray-600 dark:text-gray-200">Roll No: </span>
+                <span className="text-gray-800 dark:text-white">{student.rollNo}</span>
+              </div>
+              <div className="bg-white dark:bg-gray-600 p-3 rounded-lg">
+                <span className="font-semibold text-gray-600 dark:text-gray-200">Admission Year: </span>
+                <span className="text-gray-800 dark:text-white">{student.admissionYear}</span>
+              </div>
+              <div className="bg-white dark:bg-gray-600 p-3 rounded-lg">
+                <span className="font-semibold text-gray-600 dark:text-gray-200">Degree: </span>
+                <span className="text-gray-800 dark:text-white">{student.degree}</span>
+              </div>
             </div>
-            <div className="flex">
-              <span className="font-semibold w-1/2">Admission no:</span>
-              <span className="w-1/2">{student.admissionNo}</span>
-            </div>
-            <div className="flex">
-              <span className="font-semibold w-1/2">Admission year:</span>
-              <span className="w-1/2">{student.admissionYear}</span>
-            </div>
-            <div className="flex">
-              <span className="font-semibold w-1/2">Roll no.:</span>
-              <span className="w-1/2">{student.rollNo}</span>
-            </div>
-            <div className="flex">
-              <span className="font-semibold w-1/2">Degree:</span>
-              <span className="w-1/2">{student.degree}</span>
-            </div>
-            <div className="flex">
-              <span className="font-semibold w-1/2">Department:</span>
-              <span className="w-1/2">{student.department}</span>
-            </div>
-            <div className="flex">
-              <span className="font-semibold w-1/2">Semester:</span>
-              <span className="w-1/2">{student.semester}</span>
-            </div>
-            <div className="flex">
-              <span className="font-semibold w-1/2">Course Name:</span>
-              <span className="w-1/2">{student.coursename}</span>
-            </div>
-            <div className="flex">
-              <span className="font-semibold w-1/2">College:</span>
-              <span className="w-1/2">{student.college}</span>
-            </div>
-            <div className="flex">
-              <span className="font-semibold w-1/2">Curriculum Plan:</span>
-              <span className="w-1/2">{student.curriculumPlan}</span>
+            <div className="space-y-2">
+              <div className="bg-white dark:bg-gray-600 p-3 rounded-lg">
+                <span className="font-semibold text-gray-600 dark:text-gray-200">Department: </span>
+                <span className="text-gray-800 dark:text-white">{student.department}</span>
+              </div>
+              <div className="bg-white dark:bg-gray-600 p-3 rounded-lg">
+                <span className="font-semibold text-gray-600 dark:text-gray-200">Semester: </span>
+                <span className="text-gray-800 dark:text-white">{student.semester}</span>
+              </div>
+              <div className="bg-white dark:bg-gray-600 p-3 rounded-lg">
+                <span className="font-semibold text-gray-600 dark:text-gray-200">Course: </span>
+                <span className="text-gray-800 dark:text-white">{student.courseName}</span>
+              </div>
+              <div className="bg-white dark:bg-gray-600 p-3 rounded-lg">
+                <span className="font-semibold text-gray-600 dark:text-gray-200">College: </span>
+                <span className="text-gray-800 dark:text-white">{student.college}</span>
+              </div>
+              <div className="bg-white dark:bg-gray-600 p-3 rounded-lg">
+                <span className="font-semibold text-gray-600 dark:text-gray-200">Curriculum: </span>
+                <span className="text-gray-800 dark:text-white">{student.curriculumPlan}</span>
+              </div>
             </div>
           </div>
         </div>
