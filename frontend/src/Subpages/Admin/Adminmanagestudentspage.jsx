@@ -101,7 +101,7 @@ const AdminmanageStudentsPage = () => {
         </div>
       </div>
 
-      <form id="addStudentForm" className="hidden mt-6 bg-white dark:bg-gray-800 dark:text-white p-6 rounded-lg shadow-md" onSubmit={handleAddStudent}>
+      <form id="addStudentForm" className="hidden mt-6 p-6 rounded-lg shadow-md" onSubmit={handleAddStudent}>
         <h2 className="text-xl font-bold mb-4">Add New Student</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input type="text" name="Fullname" value={newStudent.Fullname} onChange={handleInputChange} placeholder="Fullname" className="p-2 border rounded" required />
