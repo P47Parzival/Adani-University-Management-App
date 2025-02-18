@@ -1,151 +1,87 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
 
-const Studentattendancepage = () => {
+const StudentAttendancePage = () => {
+  const [rollNo, setRollNo] = useState('');
   const [attendance, setAttendance] = useState([]);
-  const [selectedSubject, setSelectedSubject] = useState('all');
-  const location = useLocation();
-  const rollNo = location.state?.rollNo;
-
-  // Sample subjects (you can fetch this from your backend)
-  const subjects = ['All Subjects', 'Data Structures', 'Operating Systems', 'Database Management', 'Computer Networks'];
-
-  useEffect(() => {
-    if (rollNo) {
-      fetchAttendance();
-    }
-  }, [rollNo]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const fetchAttendance = async () => {
+    if (!rollNo.trim()) {
+      setError('Please enter your roll number.');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+
     try {
       const response = await axios.get(`http://localhost:3000/attendance/student/${rollNo}`);
       setAttendance(response.data);
     } catch (error) {
       console.error('Error fetching attendance:', error);
+      setError('Failed to fetch attendance. Please check your roll number.');
+    } finally {
+      setLoading(false);
     }
   };
-
-  // Group attendance by subject
-  const groupedAttendance = attendance.reduce((acc, record) => {
-    if (!acc[record.subject]) {
-      acc[record.subject] = [];
-    }
-    acc[record.subject].push(record);
-    return acc;
-  }, {});
-
-  // Calculate attendance percentage for each subject
-  const calculateAttendanceStats = (records) => {
-    const total = records.length;
-    const present = records.filter(record => 
-      record.records.find(r => r.rollNo === rollNo)?.isPresent
-    ).length;
-    const percentage = (present / total) * 100;
-    return {
-      total,
-      present,
-      absent: total - present,
-      percentage: percentage.toFixed(1)
-    };
-  };
-
-  // Filter attendance based on selected subject
-  const filteredAttendance = selectedSubject === 'all' 
-    ? attendance 
-    : attendance.filter(record => record.subject === selectedSubject);
 
   return (
-    <div className="bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow-lg p-6">
-      <h1 className="text-2xl font-bold mb-6">My Attendance</h1>
+    <div className="max-w-4xl mx-auto p-6 rounded-lg shadow-lg">
+      <h1 className="text-2xl font-bold mb-4 text-center">Student Attendance</h1>
 
-      {/* Subject Selection and Overview Cards */}
-      <div className="mb-6">
-        <select
-          value={selectedSubject}
-          onChange={(e) => setSelectedSubject(e.target.value)}
-          className="mb-4 p-2 border rounded dark:bg-gray-700 dark:border-gray-600"
+      {/* Input for Roll Number */}
+      <div className="flex justify-center mb-4">
+        <input
+          type="text"
+          placeholder="Enter Roll No"
+          value={rollNo}
+          onChange={(e) => setRollNo(e.target.value)}
+          className="border p-2 mr-2 text-black"
+        />
+        <button
+          onClick={fetchAttendance}
+          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
         >
-          <option value="all">All Subjects</option>
-          {Object.keys(groupedAttendance).map(subject => (
-            <option key={subject} value={subject}>{subject}</option>
-          ))}
-        </select>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {Object.entries(groupedAttendance).map(([subject, records]) => {
-            const stats = calculateAttendanceStats(records);
-            return (
-              <div 
-                key={subject}
-                className={`p-4 rounded-lg ${
-                  stats.percentage >= 75 ? 'bg-green-100 dark:bg-green-800' : 'bg-red-100 dark:bg-red-800'
-                } ${selectedSubject === subject ? 'ring-2 ring-blue-500' : ''}`}
-                onClick={() => setSelectedSubject(subject)}
-              >
-                <h3 className="font-semibold mb-2">{subject}</h3>
-                <div className="text-sm">
-                  <p>Total Classes: {stats.total}</p>
-                  <p>Present: {stats.present}</p>
-                  <p>Absent: {stats.absent}</p>
-                  <p className="font-bold">
-                    Attendance: {stats.percentage}%
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+          Fetch Attendance
+        </button>
       </div>
 
-      {/* Detailed Attendance Table */}
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-gray-300 dark:border-gray-600">
-          <thead className="bg-gray-100 dark:bg-gray-700">
-            <tr>
-              <th className="border p-2">Date</th>
-              <th className="border p-2">Subject</th>
-              <th className="border p-2">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredAttendance.map((record, index) => {
-              const studentRecord = record.records.find(r => r.rollNo === rollNo);
-              return (
-                <tr 
-                  key={index}
-                  className={`${
-                    studentRecord?.isPresent 
-                      ? 'bg-green-50 dark:bg-green-900/20' 
-                      : 'bg-red-50 dark:bg-red-900/20'
-                  } hover:opacity-80 transition-opacity`}
-                >
-                  <td className="border p-2">
-                    {new Date(record.date).toLocaleDateString('en-US', {
-                      weekday: 'short',
-                      year: 'numeric',
-                      month: 'short',
-                      day: 'numeric'
-                    })}
-                  </td>
-                  <td className="border p-2">{record.subject}</td>
-                  <td className="border p-2">
-                    <span className={`px-2 py-1 rounded-full text-sm font-medium ${
-                      studentRecord?.isPresent
-                        ? 'bg-green-200 text-green-800 dark:bg-green-900 dark:text-green-200'
-                        : 'bg-red-200 text-red-800 dark:bg-red-900 dark:text-red-200'
-                    }`}>
-                      {studentRecord?.isPresent ? 'Present' : 'Absent'}
-                    </span>
-                  </td>
+      {/* Error Message */}
+      {error && <p className="text-red-500 text-center">{error}</p>}
+
+      {/* Attendance Table */}
+      {loading ? (
+        <p className="text-center">Loading...</p>
+      ) : (
+        attendance.length > 0 ? (
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="bg-gray-50">
+                  <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Date</th>
+                  <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Status</th>
                 </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                {attendance.map((record, index) => (
+                  <tr key={index}>
+                    <td className="px-6 py-4 text-sm text-black">{new Date(record.date).toLocaleDateString()}</td>
+                    <td className={`px-6 py-4 text-sm font-medium ${record.isPresent ? 'text-green-600' : 'text-red-600'}`}>
+                      {record.isPresent ? 'Present' : 'Absent'}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p className="text-center text-gray-500">No attendance records found.</p>
+        )
+      )}
     </div>
   );
 };
 
-export default Studentattendancepage;
+export default StudentAttendancePage;
