@@ -2,15 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const Student = require('./Model/Student');
-const Admin = require('./Model/Admin'); // Import Admin model
-const Professor = require('./Model/Professor'); // Import Professor model
+const Admin = require('./Model/Admin'); 
+const Professor = require('./Model/Professor'); 
 const studentRoutes = require('./Routes/studentRoutes');
 const adminRoutes = require('./Routes/adminRoutes');
 const professorRoutes = require('./Routes/professorRoutes');
 const complainRoutes = require('./Routes/complainRoutes');
-const calenderRoutes = require('./Routes/calenderRoutes'); // Import calender routes
+const calenderRoutes = require('./Routes/calenderRoutes');
 const chatbotRoutes = require('./Routes/chatbotRoutes');
-const attendanceRoutes = require('./Routes/attendanceRoutes'); // Import attendance routes
+const attendanceRoutes = require('./Routes/attendanceRoutes');
 const path = require('path');
 
 const app = express();
@@ -41,7 +41,7 @@ const students = [
     "rollNo": "1AUA23BCS040",
     "degree": "Undergraduate",
     "department": "Computer Science",
-    "semester": "SEMESTER - III",
+    "semester": "1",
     "courseName": "B. Tech. in Computer Science and Engineering (AI-ML)",
     "college": "ADANI UNIVERSITY",
     "curriculumPlan": "BTech-CSE(AI-ML)",
@@ -57,7 +57,7 @@ const students = [
     "rollNo": "1AUA23BCS041",
     "degree": "Undergraduate",
     "department": "Computer Science",
-    "semester": "SEMESTER - III",
+    "semester": "2",
     "courseName": "B. Tech. in Computer Science and Engineering (AI-ML)",
     "college": "ADANI UNIVERSITY",
     "curriculumPlan": "BTech-CSE(AI-ML)",
