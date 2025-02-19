@@ -30,16 +30,11 @@ Sub Features
 
 ## Screenshots of Student Side
 
-<div style="display: flex; gap: 10px; margin-bottom: 5px">
-    <img src="https://github.com/P47Parzival/Adani-University-Management-App/blob/main/frontend/Screenshots/Screenshot%202025-02-18%20222600.png?raw=true" alt="App Screenshot" style="width: 50%;">
-    <img src="https://github.com/P47Parzival/Adani-University-Management-App/blob/main/frontend/Screenshots/Screenshot%202025-02-18%20222541.png?raw=true" alt="App Screenshot" style="width: 50%;">
-</div>
-<div style="display: flex; gap: 10px; margin-bottom: 5px">
-    <img src="https://github.com/P47Parzival/Adani-University-Management-App/blob/main/frontend/Screenshots/Screenshot%202025-02-18%20222751.png?raw=true" alt="App Screenshot" style="width: 50%;">
-    <img src="https://github.com/P47Parzival/Adani-University-Management-App/blob/main/frontend/Screenshots/Screenshot%202025-02-18%20222734.png?raw=true" alt="App Screenshot" style="width: 50%;">
-</div>
-<div style="display: flex; gap: 10px;">
-    <img src="https://github.com/P47Parzival/Adani-University-Management-App/blob/main/frontend/Screenshots/Screenshot%202025-02-18%20223033.png?raw=true" alt="App Screenshot" style="width: 50%;">
-    <img src="https://github.com/P47Parzival/Adani-University-Management-App/blob/main/frontend/Screenshots/Screenshot%202025-02-18%20224233.png?raw=true" alt="App Screenshot" style="width: 50%;">
-</div>
+## Screenshots of Student Side
+
+| ![Screenshot 1](https://github.com/P47Parzival/Adani-University-Management-App/blob/main/frontend/Screenshots/Screenshot%202025-02-18%20222600.png?raw=true) | ![Screenshot 2](https://github.com/P47Parzival/Adani-University-Management-App/blob/main/frontend/Screenshots/Screenshot%202025-02-18%20222541.png?raw=true) |
+|--|--|
+| ![Screenshot 3](https://github.com/P47Parzival/Adani-University-Management-App/blob/main/frontend/Screenshots/Screenshot%202025-02-18%20222751.png?raw=true) | ![Screenshot 4](https://github.com/P47Parzival/Adani-University-Management-App/blob/main/frontend/Screenshots/Screenshot%202025-02-18%20222734.png?raw=true) |
+| ![Screenshot 5](https://github.com/P47Parzival/Adani-University-Management-App/blob/main/frontend/Screenshots/Screenshot%202025-02-18%20223033.png?raw=true) | ![Screenshot 6](https://github.com/P47Parzival/Adani-University-Management-App/blob/main/frontend/Screenshots/Screenshot%202025-02-18%20224233.png?raw=true) |
+
 
