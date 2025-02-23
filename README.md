@@ -50,6 +50,11 @@ To Keep the things fast we only used.
 
 **Server:** Node, Express
 
+## Future prospects
+- We will be adding smart attendance feature
+- More modulus for staff, faculty will be added
+- Centralised network establishment will be done.
+
 ## Authors
 
 - Dhruv Mali
